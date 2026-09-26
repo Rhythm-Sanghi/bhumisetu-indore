@@ -1,6 +1,7 @@
 import hashlib
 import io
 import json
+import math
 import os
 import threading
 from contextlib import asynccontextmanager
@@ -9,6 +10,7 @@ from typing import Literal
 from fastapi import FastAPI,UploadFile,File,Form,HTTPException,BackgroundTasks,Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse,Response
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel,Field
 from shapely.geometry import box,mapping
 from .database import Base,engine,Session,Dataset,Feature,Issue,Decision,Event,Job,DATA,uid,now,serialize,event
@@ -20,6 +22,7 @@ from .exporting import export_bundle
 
 REPO=Path(__file__).resolve().parents[2]
 INVENTORY=REPO/'data'/'inventory.json'
+WEB_ROOT=REPO/'web'
 processing_lock=threading.Lock()
 @asynccontextmanager
 async def lifespan(app):
@@ -125,6 +128,8 @@ def enqueue(background,kind,fn):
 @app.post('/api/demo')
 def load_demo(background:BackgroundTasks):
     inv=inventory()
+    try: building_limit=max(0,int(os.getenv('DEMO_BUILDING_LIMIT','0')))
+    except ValueError: building_limit=0
     def work(s):
         loaded=[]
         existing={d.source.get('inventory_id') for d in s.query(Dataset)}
@@ -133,6 +138,14 @@ def load_demo(background:BackgroundTasks):
             path=REPO/'data'/source['file']
             if hashlib.sha256(path.read_bytes()).hexdigest()!=source['sha256']: raise ValueError('Bundled dataset checksum mismatch')
             source={**source,'inventory_id':source['id']}
+            if source['id']=='osm_buildings' and building_limit:
+                collection=json.loads(path.read_text(encoding='utf-8'))
+                step=max(1,math.ceil(len(collection['features'])/building_limit))
+                collection['features']=collection['features'][::step][:building_limit]
+                sample=DATA/'demo-cache'/'osm_buildings_sample.geojson';sample.parent.mkdir(parents=True,exist_ok=True)
+                sample.write_text(json.dumps(collection,separators=(',',':')),encoding='utf-8')
+                path=sample
+                source={**source,'feature_count':len(collection['features']),'demo_sample':True,'source_file':'osm_buildings.geojson','limitations':source['limitations']+f' The free public demo displays a systematic {len(collection["features"]):,}-feature sample for responsive browser review; the bundled source file remains unchanged.'}
             # Preserve source files; import three original WGS84 themes and admin boundary.
             ds=ingest(s,path,source['name'],source['kind'],source)
             loaded.append(ds.id)
@@ -227,3 +240,11 @@ def raster_preview(dataset_id:str, product:Literal['normalized','hillshade']=Que
                 grey=np.nan_to_num(np.clip((arr.filled(float(lo))-lo)/max(float(hi-lo),1e-9)*255,0,255)).astype('uint8')
             rgba=np.dstack([grey,grey,grey,(~np.ma.getmaskarray(arr)*255).astype('uint8')]);buf=io.BytesIO();Image.fromarray(rgba).save(buf,format='PNG')
     return Response(buf.getvalue(),media_type='image/png')
+
+if WEB_ROOT.exists():
+    app.mount('/assets',StaticFiles(directory=WEB_ROOT/'assets'),name='web-assets')
+    @app.get('/')
+    @app.get('/{path:path}')
+    def web_app(path:str=''):
+        candidate=WEB_ROOT/path
+        return FileResponse(candidate if candidate.is_file() else WEB_ROOT/'index.html')
