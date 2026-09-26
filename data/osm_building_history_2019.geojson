@@ -1,0 +1,42 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              75.8613652,
+              22.7198342
+            ],
+            [
+              75.8614263,
+              22.7198353
+            ],
+            [
+              75.8614279,
+              22.7197586
+            ],
+            [
+              75.8613668,
+              22.7197575
+            ],
+            [
+              75.8613652,
+              22.7198342
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "yes",
+        "source_id": "way/702251646",
+        "edited_at": "2019-07-07T14:59:10Z",
+        "osm_version": "1",
+        "historical_epoch": "2019-07-07T14:59:10Z"
+      }
+    }
+  ]
+}

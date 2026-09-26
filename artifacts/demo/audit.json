@@ -1,0 +1,155 @@
+[
+  {
+    "sequence": 1,
+    "timestamp": "2026-09-17T15:58:20.052597+00:00",
+    "action": "import",
+    "detail": {
+      "dataset_id": "5285692dd11b4b2f9ef825ef6ed3aaa5",
+      "name": "OpenStreetMap · Buildings",
+      "sha256": "acb6b62f548ce50722e69ac3a213cb10bfaab5d88e81f9168ef8f1d094a07518",
+      "count": 8826,
+      "source_crs": "EPSG:4326"
+    }
+  },
+  {
+    "sequence": 2,
+    "timestamp": "2026-09-17T15:59:43.720151+00:00",
+    "action": "import",
+    "detail": {
+      "dataset_id": "f907a36d69864d5382df89cd052ae910",
+      "name": "OpenStreetMap · Roads",
+      "sha256": "20901e19ba09083cd18b372935c1a7648ed81b7dc5d4747605098433beaf8f34",
+      "count": 601,
+      "source_crs": "EPSG:3857"
+    }
+  },
+  {
+    "sequence": 3,
+    "timestamp": "2026-09-17T15:59:44.083530+00:00",
+    "action": "import",
+    "detail": {
+      "dataset_id": "9d187db6a3e84975928df9d799252283",
+      "name": "OpenStreetMap · Amenities",
+      "sha256": "8fdc7c1e124c29968f81dd6263e5ee2349cb5530d367020a8ad879ac946205e7",
+      "count": 275,
+      "source_crs": "EPSG:4326"
+    }
+  },
+  {
+    "sequence": 4,
+    "timestamp": "2026-09-17T15:59:44.167248+00:00",
+    "action": "import",
+    "detail": {
+      "dataset_id": "2fb5ebac609d466f9f5ea46b7342be22",
+      "name": "OpenStreetMap · Waterways",
+      "sha256": "2cd7aaa9753f20164f4d0295e8123697cf10ddbd2e0177be8f5b267a74b835ba",
+      "count": 3,
+      "source_crs": "EPSG:4326"
+    }
+  },
+  {
+    "sequence": 5,
+    "timestamp": "2026-09-17T15:59:44.207897+00:00",
+    "action": "import",
+    "detail": {
+      "dataset_id": "86d8828d56aa493f968361eec5b15b0e",
+      "name": "Indore district · geoBoundaries",
+      "sha256": "8f9cdc3eb8f0706bd3537bd8ed47cf2cb586dbeb3c64c891e2e88521c7f18df8",
+      "count": 1,
+      "source_crs": "EPSG:4326"
+    }
+  },
+  {
+    "sequence": 6,
+    "timestamp": "2026-09-17T15:59:50.100278+00:00",
+    "action": "analysis",
+    "detail": {
+      "created": 564,
+      "checks": {
+        "match": 462,
+        "attribute_conflict": 102
+      },
+      "method_version": "spatial-v1",
+      "gap_check": "requires explicit coverage and parcel layers"
+    }
+  },
+  {
+    "sequence": 7,
+    "timestamp": "2026-09-17T16:08:07.725116+00:00",
+    "action": "import",
+    "detail": {
+      "dataset_id": "09a74d4b286a4439891b86001ebaf21f",
+      "name": "Building history · OSM 2019",
+      "sha256": "883efa2e50b06644ac69d813722cf854bce611143c7f28fd54efdacc14136115",
+      "count": 1,
+      "source_crs": "EPSG:4326"
+    }
+  },
+  {
+    "sequence": 8,
+    "timestamp": "2026-09-17T16:08:16.691597+00:00",
+    "action": "analysis",
+    "detail": {
+      "created": 3,
+      "checks": {
+        "match": 463,
+        "boundary_displacement": 1,
+        "area_difference": 1
+      },
+      "method_version": "spatial-v1",
+      "gap_check": "requires explicit coverage and parcel layers"
+    }
+  },
+  {
+    "sequence": 9,
+    "timestamp": "2026-09-17T16:08:51.360768+00:00",
+    "action": "review",
+    "detail": {
+      "issue_id": "c4ff814218614c9881fed2917d9674b5",
+      "action_taken": "accepted",
+      "reviewer": "Pilot reviewer",
+      "note": "Demo review: verified the real OSM 2019/current version difference (111.77 m² area, 10.80 m displacement). Accept this temporal mapping observation only; retain both geometries. No cadastral or real-world accuracy determination.",
+      "version": 2
+    }
+  },
+  {
+    "sequence": 10,
+    "timestamp": "2026-09-17T16:10:40.095624+00:00",
+    "action": "export",
+    "detail": {
+      "format": "gpkg",
+      "feature_count": 2,
+      "output_sha256": "3d49e4beedab4143b4b57e49a62266c6bb9f7eaa92ec9a326f66816c7a3149b3"
+    }
+  },
+  {
+    "sequence": 11,
+    "timestamp": "2026-09-18T04:49:12.371378+00:00",
+    "action": "export",
+    "detail": {
+      "format": "geojson",
+      "feature_count": 2,
+      "output_sha256": "d3dedfe51f40ee803f486a5de92c30af119255b23ca25717a3dc38a600c88419"
+    }
+  },
+  {
+    "sequence": 12,
+    "timestamp": "2026-09-18T04:49:12.603654+00:00",
+    "action": "export",
+    "detail": {
+      "format": "csv",
+      "feature_count": 2,
+      "output_sha256": "b992666234cdc16979b68b7ccb20906f12520f4a2230de284bf26c3be8713a14"
+    }
+  },
+  {
+    "sequence": 13,
+    "timestamp": "2026-09-18T04:49:12.756102+00:00",
+    "action": "export",
+    "detail": {
+      "format": "gpkg",
+      "feature_count": 2,
+      "output_sha256": "9f82ce82c812761563641a942835baad1053c5c2af9bf86b27d4728f049a4095"
+    }
+  }
+]

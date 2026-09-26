@@ -1,0 +1,48 @@
+:root {
+  color-scheme: light;
+  font-family:
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Arial,
+    sans-serif;
+  font-synthesis: none;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--text);
+  background: var(--page);
+  --page: #f5f4ef;
+  --surface: #ffffff;
+  --surface-subtle: #f8f8f5;
+  --text: #252a28;
+  --text-secondary: #5c625e;
+  --text-quiet: #666d67;
+  --forest: #285247;
+  --forest-hover: #1c4036;
+  --selection: #e8f0ec;
+  --hover: #f3f5f2;
+  --line: #dcded7;
+  --line-strong: #b9bfb6;
+  --warning: #805710;
+  --warning-surface: #faf5e9;
+  --danger: #9c392e;
+  --danger-surface: #fbefed;
+  --focus: #285247;
+  --radius: 4px;
+  --radius-overlay: 8px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --text-xs: 12px;
+  --text-sm: 13px;
+  --text-body: 14px;
+  --text-section: 15px;
+  --text-title: 20px;
+  --shadow-overlay: 0 12px 40px #252a2826;
+  --mono: ui-monospace, "Cascadia Code", Consolas, monospace;
+}

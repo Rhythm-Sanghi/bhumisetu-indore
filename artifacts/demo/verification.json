@@ -1,0 +1,188 @@
+{
+  "health": {
+    "status": "ok",
+    "database": "postgresql",
+    "project_crs": "EPSG:32643"
+  },
+  "datasets": [
+    [
+      "OpenStreetMap · Buildings",
+      8826,
+      "EPSG:4326"
+    ],
+    [
+      "OpenStreetMap · Roads",
+      601,
+      "EPSG:3857"
+    ],
+    [
+      "OpenStreetMap · Amenities",
+      275,
+      "EPSG:4326"
+    ],
+    [
+      "OpenStreetMap · Waterways",
+      3,
+      "EPSG:4326"
+    ],
+    [
+      "Indore district · geoBoundaries",
+      1,
+      "EPSG:4326"
+    ],
+    [
+      "Building history · OSM 2019",
+      1,
+      "EPSG:4326"
+    ]
+  ],
+  "records": 9707,
+  "decisions": [
+    {
+      "id": "b15c47f798044b64a78b520d7bc173f0",
+      "issue_id": "c4ff814218614c9881fed2917d9674b5",
+      "action": "accepted",
+      "reviewer": "Pilot reviewer",
+      "note": "Demo review: verified the real OSM 2019/current version difference (111.77 m² area, 10.80 m displacement). Accept this temporal mapping observation only; retain both geometries. No cadastral or real-world accuracy determination.",
+      "timestamp": "2026-09-17T16:08:51.356588+00:00",
+      "before": {
+        "issue": {
+          "id": "c4ff814218614c9881fed2917d9674b5",
+          "fingerprint": "bc55be3f56a128f27d42f9d1d9bc175bb40041c5482fb14b25f0b0d94a3f4b1b",
+          "kind": "boundary_displacement",
+          "severity": "warning",
+          "title": "Candidate boundaries displaced",
+          "feature_ids": [
+            "f2f12b708cc44b5ea54d9c887d860f5e",
+            "3be08ad9c32e4f25b65bfa81536d59e0"
+          ],
+          "evidence": {
+            "score": 43.0,
+            "score_type": "Deterministic similarity, not calibrated probability",
+            "components": [
+              {
+                "name": "Intersection over union",
+                "value": 0.3229,
+                "weight": 0.55,
+                "explanation": "Shared area divided by combined area",
+                "contribution": 19.7
+              },
+              {
+                "name": "Centroid proximity",
+                "value": 0.80485,
+                "weight": 0.2,
+                "explanation": "1 − centroid distance / 30 m, clipped at zero",
+                "contribution": 17.9
+              },
+              {
+                "name": "Area agreement",
+                "value": 0.3229,
+                "weight": 0.15,
+                "explanation": "Smaller area divided by larger area",
+                "contribution": 5.4
+              }
+            ],
+            "metrics": {
+              "centroid_distance_m": 5.855,
+              "iou": 0.3229,
+              "area_difference_m2": 111.772,
+              "area_difference_pct": 67.71,
+              "boundary_displacement_m": 10.795
+            },
+            "missing_evidence": [
+              "name",
+              "parcel_ref"
+            ],
+            "method_version": "spatial-v2",
+            "candidate_count": 1,
+            "reason": "Real historical/current source versions differ. This is a temporal mapping change, not proof that either geometry is correct or a real-world building changed."
+          },
+          "proposed_geometry": null,
+          "status": "pending",
+          "version": 1,
+          "created_at": "2026-09-17T16:08:16.711841+00:00"
+        }
+      },
+      "after": {
+        "status": "accepted",
+        "geometry_changed": false
+      }
+    }
+  ],
+  "discrepancy": {
+    "id": "c4ff814218614c9881fed2917d9674b5",
+    "fingerprint": "bc55be3f56a128f27d42f9d1d9bc175bb40041c5482fb14b25f0b0d94a3f4b1b",
+    "kind": "boundary_displacement",
+    "severity": "warning",
+    "title": "Candidate boundaries displaced",
+    "feature_ids": [
+      "f2f12b708cc44b5ea54d9c887d860f5e",
+      "3be08ad9c32e4f25b65bfa81536d59e0"
+    ],
+    "evidence": {
+      "score": 43.0,
+      "score_type": "Deterministic similarity, not calibrated probability",
+      "components": [
+        {
+          "name": "Intersection over union",
+          "value": 0.3229,
+          "weight": 0.55,
+          "explanation": "Shared area divided by combined area",
+          "contribution": 19.7
+        },
+        {
+          "name": "Centroid proximity",
+          "value": 0.80485,
+          "weight": 0.2,
+          "explanation": "1 − centroid distance / 30 m, clipped at zero",
+          "contribution": 17.9
+        },
+        {
+          "name": "Area agreement",
+          "value": 0.3229,
+          "weight": 0.15,
+          "explanation": "Smaller area divided by larger area",
+          "contribution": 5.4
+        }
+      ],
+      "metrics": {
+        "centroid_distance_m": 5.855,
+        "iou": 0.3229,
+        "area_difference_m2": 111.772,
+        "area_difference_pct": 67.71,
+        "boundary_displacement_m": 10.795
+      },
+      "missing_evidence": [
+        "name",
+        "parcel_ref"
+      ],
+      "method_version": "spatial-v2",
+      "candidate_count": 1,
+      "reason": "Real historical/current source versions differ. This is a temporal mapping change, not proof that either geometry is correct or a real-world building changed."
+    },
+    "proposed_geometry": null,
+    "status": "accepted",
+    "version": 2,
+    "created_at": "2026-09-17T16:08:16.711841+00:00"
+  },
+  "exports": {
+    "geojson": {
+      "bytes": 75745,
+      "feature_count": 2,
+      "invalid_geometries": 0,
+      "sha256": "1875b45f5f7cb75994e80ac98a8378f041867a490b314bd335c344dfcac27312"
+    },
+    "csv": {
+      "bytes": 75661,
+      "feature_count": 2,
+      "invalid_geometries": 0,
+      "sha256": "f9af810416b14114ef8b722800cd5488b8e16f791819f57614af8fbf9a4693af"
+    },
+    "gpkg": {
+      "bytes": 79317,
+      "feature_count": 2,
+      "invalid_geometries": 0,
+      "sha256": "c67d88e1783900da61e6c4e8977cecc1f80d2893256bc1e78b38203d10805b76"
+    }
+  }
+}

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="openstreetmap-cgimap 2.1.0 (3498756 spike-06.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <way id="702251646" visible="true" version="1" changeset="71984439" timestamp="2019-07-07T14:59:10Z" user="Demonstrate Man" uid="9155879">
+  <nd ref="6594672265"/>
+  <nd ref="6594672262"/>
+  <nd ref="6594672263"/>
+  <nd ref="6594672264"/>
+  <nd ref="6594672265"/>
+  <tag k="building" v="yes"/>
+ </way>
+ <way id="702251646" visible="true" version="2" changeset="100132444" timestamp="2021-02-28T11:28:19Z" user="vishalgrover1111" uid="12386250">
+  <nd ref="6594672265"/>
+  <nd ref="6594672262"/>
+  <nd ref="6594672263"/>
+  <nd ref="6594672264"/>
+  <nd ref="6594672265"/>
+  <tag k="addr:city" v="Indore"/>
+  <tag k="addr:housenumber" v="90, 1"/>
+  <tag k="addr:postcode" v="452007"/>
+  <tag k="addr:street" v="Mahatma Gandhi Rd, Khatipura"/>
+  <tag k="building" v="retail"/>
+  <tag k="description" v="Fabric Mall , fabric matching center, clothing store"/>
+  <tag k="email" v="vishwasdawani99@gmail.com"/>
+  <tag k="name" v="Neelkamal Matching Centre (Fabric Mall)"/>
+  <tag k="phone" v="+917314966173"/>
+ </way>
+ <way id="702251646" visible="true" version="3" changeset="100132585" timestamp="2021-02-28T11:33:24Z" user="vishalgrover1111" uid="12386250">
+  <nd ref="6594672265"/>
+  <nd ref="6594672262"/>
+  <nd ref="6594672263"/>
+  <nd ref="6594672264"/>
+  <nd ref="6594672265"/>
+  <tag k="addr:city" v="Indore"/>
+  <tag k="addr:housenumber" v="90, 1"/>
+  <tag k="addr:postcode" v="452007"/>
+  <tag k="addr:street" v="Mahatma Gandhi Rd, Khatipura"/>
+  <tag k="building" v="retail"/>
+  <tag k="building:levels" v="0"/>
+  <tag k="description" v="Fabric Mall , fabric matching center, clothing store"/>
+  <tag k="email" v="vishwasdawani99@gmail.com"/>
+  <tag k="name" v="Neelkamal Matching Centre (Fabric Mall)"/>
+  <tag k="phone" v="+917314966173"/>
+ </way>
+ <way id="702251646" visible="true" version="4" changeset="100133853" timestamp="2021-02-28T12:12:11Z" user="vishalgrover1111" uid="12386250">
+  <nd ref="6594672371"/>
+  <nd ref="6594672374"/>
+  <nd ref="6594672373"/>
+  <nd ref="6594672372"/>
+  <nd ref="6594672263"/>
+  <nd ref="6594672264"/>
+  <nd ref="6594672255"/>
+  <nd ref="6594672371"/>
+  <tag k="addr:city" v="Indore"/>
+  <tag k="addr:housenumber" v="90, 1"/>
+  <tag k="addr:postcode" v="452007"/>
+  <tag k="addr:street" v="Mahatma Gandhi Rd, Khatipura"/>
+  <tag k="building" v="retail"/>
+  <tag k="building:levels" v="5"/>
+  <tag k="description" v="Fabric Mall , fabric matching center, clothing store"/>
+  <tag k="email" v="vishwasdawani99@gmail.com"/>
+  <tag k="name" v="Neelkamal Matching Centre (Fabric Mall)"/>
+  <tag k="phone" v="+917314966173"/>
+ </way>
+</osm>
