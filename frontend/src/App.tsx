@@ -141,6 +141,8 @@ export default function App() {
       refreshLayers(ws).catch((e) => setError(e.message));
       const failed = ws.jobs.find((j) => j.status === "failed");
       if (failed && ws.jobs[0]?.id === failed.id) setError(failed.message);
+      else if (ws.jobs[0]?.kind === "demo")
+        setNotice("Reference data loaded. Run analysis when you are ready to generate findings.");
       else setNotice("Processing complete. Results are ready for review.");
     }
     previousActive.current = !!active;

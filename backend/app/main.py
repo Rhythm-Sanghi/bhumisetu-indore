@@ -136,7 +136,7 @@ def load_demo(background:BackgroundTasks):
             # Preserve source files; import three original WGS84 themes and admin boundary.
             ds=ingest(s,path,source['name'],source['kind'],source)
             loaded.append(ds.id)
-        return {'loaded':loaded,**analyze(s)}
+        return {'loaded':loaded,'note':'Reference data loaded. Run analysis separately to generate findings.'}
     return enqueue(background,'demo',work)
 
 @app.post('/api/import')

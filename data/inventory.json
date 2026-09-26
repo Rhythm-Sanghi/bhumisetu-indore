@@ -64,7 +64,7 @@
       "crs": "EPSG:4326",
       "feature_count": 275,
       "limitations": "Community mapping; incomplete coverage and variable observation dates. Edit timestamp is not survey date. No ownership or legal parcel authority. Ways only; multipolygon relations are not included. Shared source with other OSM themes.",
-      "sha256": "8fdc7c1e124c29968f81dd6263e5ee2349cb5530d367020a8ad879ac946205e7",
+      "sha256": "62bb80f136607429b8e969651937df9f8dec98f197c7bb4066a79cdd284befb1",
       "status": "available",
       "snapshot_at": "2026-09-17T15:51:58.280274+00:00",
       "derivation": "OSM point observations serialized as longitude/latitude CSV for tabular ingestion. No coordinate perturbation or independent survey implied."
@@ -197,7 +197,7 @@
         "way/702251646"
       ],
       "limitations": "One genuine historical OSM building state. Node versions reconstructed as of the way edit timestamp. Same producer as current OSM: temporal difference, not independent survey evidence. A later mapper expanded the footprint and changed classification; neither state certifies parcel boundaries.",
-      "sha256": "883efa2e50b06644ac69d813722cf854bce611143c7f28fd54efdacc14136115",
+      "sha256": "32ebe2f85bcc9d937a3ff3d56c919d69fb34cdd02cb7cdaaea25f990af6cf0a5",
       "history_evidence": {
         "way_version": "1",
         "way_sha256": "9cc9a2e55592c8498cae118332431016785fc0b552897fcb6ad570499b6a555d",
