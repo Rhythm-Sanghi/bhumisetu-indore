@@ -97,6 +97,7 @@ export default function App() {
   const refresh = async () => {
     const data = await api<Workspace>("/workspace");
     setWs(data);
+    setError("");
     return data;
   };
   const refreshLayers = async (data: Workspace) => {
@@ -120,6 +121,7 @@ export default function App() {
       .then(async (data) => {
         if (!mounted) return;
         setWs(data);
+        setError("");
         await refreshLayers(data);
       })
       .catch((e) => setError(e.message))
