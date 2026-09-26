@@ -7,6 +7,7 @@ from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Literal
 from fastapi import FastAPI,UploadFile,File,Form,HTTPException,BackgroundTasks,Query
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse,Response
 from pydantic import BaseModel,Field
 from shapely.geometry import box,mapping
@@ -30,6 +31,16 @@ async def lifespan(app):
     yield
 
 app=FastAPI(title='BhumiSetu · Indore harmonization',version='1.0.0',lifespan=lifespan)
+local_origins={f'http://{h}:{p}' for h in ['localhost','127.0.0.1'] for p in ['5173','8000','8080']}
+public_origins={origin.strip() for origin in os.getenv('ALLOWED_ORIGINS','').split(',') if origin.strip()}
+allowed_origins=local_origins | public_origins
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=sorted(allowed_origins),
+    allow_credentials=False,
+    allow_methods=['GET','POST','PUT','DELETE','OPTIONS'],
+    allow_headers=['Content-Type'],
+)
 
 CONNECTOR_PROFILES=[
     {'id':'municipal_gis','label':'Municipal GIS','roles':['building','road','boundary','utility'],'formats':['GeoPackage','GeoJSON','Shapefile ZIP'],'required':['licence','collection_date','CRS'],'note':'Import an authorized extract; no municipal endpoint is assumed.'},
@@ -43,8 +54,7 @@ CONNECTOR_PROFILES=[
 async def headers(request,call_next):
     # Local trusted-operator application. Prevent cross-origin browser writes.
     origin=request.headers.get('origin')
-    allowed={f'http://{h}:{p}' for h in ['localhost','127.0.0.1'] for p in ['5173','8000','8080']}
-    if request.method not in {'GET','HEAD','OPTIONS'} and origin and origin not in allowed:
+    if request.method not in {'GET','HEAD','OPTIONS'} and origin and origin not in allowed_origins:
         return Response('Cross-origin writes are disabled',status_code=403)
     response=await call_next(request)
     response.headers['X-Content-Type-Options']='nosniff'

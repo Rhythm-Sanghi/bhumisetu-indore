@@ -1,5 +1,6 @@
 export async function api<T>(path: string, init?: RequestInit): Promise<T> {
-  const r = await fetch("/api" + path, init);
+  const baseUrl = import.meta.env.VITE_API_BASE_URL || "/api";
+  const r = await fetch(`${baseUrl.replace(/\/$/, "")}${path}`, init);
   if (!r.ok) {
     let message;
     try {
