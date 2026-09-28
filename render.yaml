@@ -12,7 +12,10 @@ services:
       - key: DEMO_BUILDING_LIMIT
         value: "1200"
       - key: ALLOWED_ORIGINS
-        value: https://bhumisetu-indore.onrender.com
+        # The static site redirects to this service so the browser sends
+        # same-origin POST requests to /api. Keep the static origin too for
+        # direct visits while a deployment is propagating.
+        value: https://bhumisetu-indore-api.onrender.com,https://bhumisetu-indore.onrender.com
 
   - type: web
     name: bhumisetu-indore
