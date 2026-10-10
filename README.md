@@ -4,7 +4,9 @@ A working local geospatial application for SIH Problem Statement **26013**, “A
 
 React + TypeScript + OpenLayers; FastAPI + GeoPandas/Shapely/Rasterio/PyProj; PostgreSQL/PostGIS; Docker Compose.
 
-**This project contains reference map data, not legally authoritative cadastral evidence.** No private owner records or invented parcel dataset is included. Building footprints are explicitly classified as buildings. Four OSM thematic datasets share one producer; the administrative boundary comes from a separate third-party source. No independent cadastral survey has been verified or bundled.
+**Reference map data only; it does not establish ownership or legal parcel boundaries.** The demo uses OSM features and a third-party administrative boundary. Browse the [interface screenshots](docs/screenshots/README.md). Recorded demo exports and verification results are in `artifacts/demo/`.
+
+See [data sources](docs/DATA_SOURCES.md) and [limitations](docs/LIMITATIONS.md) for lineage and interpretation.
 
 ## Start with Docker
 
@@ -109,13 +111,15 @@ docs/                architecture, schema, source research and limitations
 scripts/             repeatable acquisition and format preparation
 ```
 
+Browse the [interface screenshots](docs/screenshots/README.md). Recorded demo exports and verification results are in `artifacts/demo/`.
+
 See [data sources](docs/DATA_SOURCES.md), [architecture](docs/ARCHITECTURE.md), [canonical schema](docs/CANONICAL_SCHEMA.md), [limitations](docs/LIMITATIONS.md) and [demonstration results](docs/DEMONSTRATION.md).
 
 The [advanced workflow guide](docs/ADVANCED_WORKFLOWS.md) documents intake profiles for authorized municipal, revenue, GNSS/ground-truth, utility and drone/terrain data, plus the implemented temporal vector change check.
 
 ## Deployment boundary
 
-This is a **local trusted-operator pilot**, bound to loopback. The reviewer name is a recorded label, not an authenticated identity. No production SSO, signed audit ledger, backup service or fine-grained authorization is fabricated. Before a multi-user operational deployment, add institutional identity, authorization, isolated ingestion workers and an approved storage/retention policy. The bundled password is a local demonstration default; set `POSTGRES_PASSWORD` through `.env` for your installation.
+This is a **local trusted-operator pilot**, bound to loopback. The reviewer name is a recorded label, not an authenticated identity. Production SSO, a signed audit ledger, a backup service and fine-grained authorization are not implemented. Before a multi-user operational deployment, add institutional identity, authorization, isolated ingestion workers and an approved storage/retention policy. The bundled password is a local demonstration default; set `POSTGRES_PASSWORD` through `.env` for your installation.
 
 ## Licences
 
