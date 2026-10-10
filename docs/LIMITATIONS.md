@@ -2,7 +2,7 @@
 
 ## Data and interpretation
 
-- No verified licensed cadastral parcel fabric, official survey control points, ownership register or high-resolution imagery for Indore is bundled. Officer-provided legally accessible anonymized records can be imported. No fabricated integration is claimed.
+- No verified licensed cadastral parcel fabric, official survey control points, ownership register or high-resolution imagery for Indore is bundled. Officer-provided legally accessible anonymized records can be imported.
 - Building, road and amenity datasets come from OSM and share source lineage. geoBoundaries district context is a separate third-party administrative source. These are not multiple independent parcel surveys.
 - OSM timestamps record edits, not survey collection dates. Completeness, positional accuracy and vertical tags vary. The simple-way/node extract omits multipolygon relations. Administrative boundaries are simplified and may be dated.
 - A real geometric discrepancy is not proof of a real-world error, encroachment, title conflict or unlawful land use. Accepting a finding acknowledges it for this local review; it does not certify it.
@@ -10,7 +10,7 @@
 
 ## Implemented scope
 
-- CRS harmonization relies on declared/georeferenced coordinates. DSM/DTM elevation statistics and a hillshade preview are available, but rubber-sheet registration, datum-shift estimation, control-point fitting, imagery extraction, raster change detection and ML are not implemented. No AI is added for presentation.
+- CRS harmonization relies on declared/georeferenced coordinates. DSM/DTM elevation statistics and a hillshade preview are available, but rubber-sheet registration, datum-shift estimation, control-point fitting, imagery extraction, raster change detection and ML are not implemented.
 - KML supports Point, LineString and Polygon placemarks including polygon holes. MultiGeometry is explicitly rejected; KMZ, network links and remote resources are not fetched.
 - Shapefiles must be supplied in a ZIP with .shp/.shx/.dbf; missing .prj requires an explicit CRS. One Shapefile per archive. GeoPackages with multiple layers require the desired layer name.
 - CSV recognizes longitude/latitude, lon/lat, x/y or easting/northing. Projected columns require a CRS declaration. Nonspatial records match by exact identifier; ambiguous/freeform address geocoding is not supplied.
