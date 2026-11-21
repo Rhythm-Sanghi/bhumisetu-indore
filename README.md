@@ -1,10 +1,10 @@
-# BhumiSetu — Indore land-data harmonization workbench
+# BhumiSetu
 
-A working local geospatial application for SIH Problem Statement **26013**, “Automated Integration and Intelligent Harmonization of Multi-source Geospatial Data for Urban Land Record Management.”
+BhumiSetu is a map workbench for reviewing Indore datasets that arrive in different formats or coordinate systems. Import the bundled reference data, inspect geometry and attribute disagreements, then record a decision before exporting the reviewed features and their audit trail.
 
-React + TypeScript + OpenLayers; FastAPI + GeoPandas/Shapely/Rasterio/PyProj; PostgreSQL/PostGIS; Docker Compose.
+![BhumiSetu map workspace with the Indore reference data loaded](artifacts/redesign/workspace-1366.png)
 
-**This project contains reference map data, not legally authoritative cadastral evidence.** No private owner records or invented parcel dataset is included. Building footprints are explicitly classified as buildings. Four OSM thematic datasets share one producer; the administrative boundary comes from a separate third-party source. No independent cadastral survey has been verified or bundled.
+This was built for Smart India Hackathon problem 26013. The app uses OpenLayers and React for the map, FastAPI for ingestion and review, and PostGIS for spatial storage. The bundled data is for reference and does not establish cadastral boundaries or ownership. See the [data sources](docs/DATA_SOURCES.md) for provenance and attribution.
 
 ## Start with Docker
 
